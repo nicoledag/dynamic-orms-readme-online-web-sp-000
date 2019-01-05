@@ -65,8 +65,9 @@ class Song
   end
 
   def self.find_by_name(name)
-    binding.pry
+  
     sql = "SELECT * FROM #{self.table_name} WHERE name = '#{name}'"
+      binding.pry
     DB[:conn].execute(sql)
   end
 
