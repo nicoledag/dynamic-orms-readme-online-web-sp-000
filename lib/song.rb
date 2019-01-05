@@ -51,7 +51,7 @@ class Song
   end
 
   def values_for_insert
-binding.pry
+
     values = []
     self.class.column_names.each do |col_name|
       values << "'#{send(col_name)}'" unless send(col_name).nil?
@@ -65,6 +65,7 @@ binding.pry
   end
 
   def self.find_by_name(name)
+    binding.pry
     sql = "SELECT * FROM #{self.table_name} WHERE name = '#{name}'"
     DB[:conn].execute(sql)
   end
