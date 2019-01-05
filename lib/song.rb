@@ -46,11 +46,12 @@ class Song
   end
 
   def table_name_for_insert
-          binding.pry
+
     self.class.table_name
   end
 
   def values_for_insert
+      binding.pry
     values = []
     self.class.column_names.each do |col_name|
       values << "'#{send(col_name)}'" unless send(col_name).nil?
