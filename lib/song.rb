@@ -60,14 +60,14 @@ class Song
   end
 
   def col_names_for_insert
-
+  binding.pry
     self.class.column_names.delete_if {|col| col == "id"}.join(", ")
   end
 
   def self.find_by_name(name)
-
+  
     sql = "SELECT * FROM #{self.table_name} WHERE name = '#{name}'"
-      binding.pry
+    
     DB[:conn].execute(sql)
   end
 
